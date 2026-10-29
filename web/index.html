@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guitar Hero III</title>
+<link rel="stylesheet" href="assets/fonts/fonts.css">
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-home" viewBox="0 0 24 24"><path d="M12 3c-4.4 0-7.5 3-7.5 7.2 0 2.3 1 4 2.5 5.1V19h2.2v-2h1.6v2h2.4v-2h1.6v2H17v-3.7c1.5-1.1 2.5-2.8 2.5-5.1C19.5 6 16.4 3 12 3Z"/><circle cx="9.2" cy="10.5" r="1.7"/><circle cx="14.8" cy="10.5" r="1.7"/></symbol>
+    <symbol id="i-songs" viewBox="0 0 24 24"><path d="M6 3h9l3 3v15H6z"/><path d="M9 9h6M9 12.5h6M9 16h4"/></symbol>
+    <symbol id="i-import" viewBox="0 0 24 24"><path d="M12 3v11"/><path d="m7.5 9.5 4.5 4.5 4.5-4.5"/><path d="M4 15v4.5h16V15"/></symbol>
+    <symbol id="i-controls" viewBox="0 0 24 24"><path d="M6.6 7h10.8a4 4 0 0 1 3.9 3.1l1 4.7a2.4 2.4 0 0 1-4 2.2L16 14.8H8L5.7 17a2.4 2.4 0 0 1-4-2.2l1-4.7A4 4 0 0 1 6.6 7Z"/><path d="M7.6 9.4v3.4M5.9 11.1h3.4"/><circle cx="16.2" cy="9.9" r="1" fill="currentColor" stroke="none"/><circle cx="18.2" cy="11.9" r="1" fill="currentColor" stroke="none"/><path d="M10.6 11.1h2.8"/></symbol>
+    <symbol id="i-options" viewBox="0 0 24 24"><path d="M4 7h10M18 7h2M4 17h4M12 17h8"/><circle cx="16" cy="7" r="2"/><circle cx="10" cy="17" r="2"/></symbol>
+    <symbol id="i-tools" viewBox="0 0 24 24"><path d="M4.8 2.6A3.6 3.6 0 1 1 2.6 4.8"/><path d="M2.6 4.8 5.3 5.5 5.5 5.3 4.8 2.6"/><path d="M8.8 8.8 18.8 18.8" stroke-width="3.2"/><path d="M20.8 3.2 13.2 10.8"/><path d="m21.4 2.6-.9 1.2"/><path d="M10.6 13.4 4.6 19.4" stroke-width="3.6"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="M7 4.5v15l12.5-7.5z" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-pause" viewBox="0 0 24 24"><path d="M7 4.5h3.5v15H7zM13.5 4.5H17v15h-3.5z" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-stop" viewBox="0 0 24 24"><path d="M6 6h12v12H6z" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+    <symbol id="i-brush" viewBox="0 0 24 24"><path d="M20.5 3.5c-3 1.2-7.2 4.8-9.6 7.6l2 2c2.8-2.4 6.4-6.6 7.6-9.6Z"/><path d="M10.9 11.1c-2.1-.4-4 1.1-4.3 3.2-.2 1.6-.9 2.9-2.6 3.7 2.6 1.4 6.3 1.2 7.8-1.1.8-1.3.9-2.6.1-3.8"/></symbol>
+    <symbol id="i-nomic" viewBox="0 0 24 24"><path d="M15 9.5V6a3 3 0 0 0-5.8-1.1M9 9v2a3 3 0 0 0 4.6 2.5"/><path d="M18.5 11a6.5 6.5 0 0 1-.9 3.3M5.5 11a6.5 6.5 0 0 0 10.4 5.2M12 17.5V21M8.5 21h7"/><path d="m3.5 3.5 17 17"/></symbol>
+    <symbol id="i-trash" viewBox="0 0 24 24"><path d="M4 7h16M9 7V4h6v3M6.5 7l1 13h9l1-13"/><path d="M10 11v5M14 11v5"/></symbol>
+    <symbol id="i-edit" viewBox="0 0 24 24"><path d="m4 20 1-4.5L15.5 5l3.5 3.5L8.5 19z"/><path d="M13.5 7 17 10.5"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6"/><path d="m15 15 5 5"/></symbol>
+    <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M20 11a8 8 0 1 0-2.3 5.7"/><path d="M20 4v7h-7"/></symbol>
+    <symbol id="i-folder" viewBox="0 0 24 24"><path d="M3 6.5h6.5l2 2H21V19H3z"/></symbol>
+    <symbol id="i-file" viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/></symbol>
+    <symbol id="i-keyboard" viewBox="0 0 24 24"><rect x="2.5" y="6" width="19" height="12" rx="1.5"/><path d="M6 10h1M9.5 10h1M13 10h1M16.5 10h1M6 13.5h1M17 13.5h1M9 14.5h6"/></symbol>
+    <symbol id="i-pad" viewBox="0 0 24 24"><path d="M7.5 7h9c2.8 0 4.5 4.3 4.5 8.5 0 2.4-1.7 3.4-3.3 1.8L15.5 15h-7l-2.2 2.3C4.7 18.9 3 17.9 3 15.5 3 11.3 4.7 7 7.5 7Z"/><path d="M8 10v3M6.5 11.5h3"/><circle cx="15.5" cy="10.5" r=".9" fill="currentColor"/><circle cx="17.3" cy="12.4" r=".9" fill="currentColor"/></symbol>
+    <symbol id="i-guitar" viewBox="0 0 24 24"><path d="M15 4.5 19.5 0M17 6l2-2"/><path d="M10.4 9.6c-1.9-1.4-4.7-1.1-5.9 1.1-.6 1.2-.2 2.3-1.3 3.3-1 .9-1.4 2.2-.4 3.2l3 3c1 1 2.3.6 3.2-.4 1-1.1 2.1-.7 3.3-1.3 2.2-1.2 2.5-4 1.1-5.9"/><path d="m9 15 1.5 1.5M17 7l-6.5 6.5"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+    <symbol id="i-warn" viewBox="0 0 24 24"><path d="M12 3.5 22 20H2z"/><path d="M12 10v4.5M12 17.2v.3"/></symbol>
+    <symbol id="i-expand" viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 3 2.6 5.6 6.1.7-4.5 4.2 1.2 6L12 16.6 6.6 19.5l1.2-6-4.5-4.2 6.1-.7z"/></symbol>
+    <symbol id="i-skip" viewBox="0 0 24 24"><path d="M5 5.5v13l9-6.5z" fill="currentColor" stroke="none"/><path d="M17.5 5.5v13"/></symbol>
+    <symbol id="i-vol" viewBox="0 0 24 24"><path d="M4 9.5h4L13 5v14l-5-4.5H4z"/><path d="M16.5 9a4 4 0 0 1 0 6M19 6.5a7.5 7.5 0 0 1 0 11"/></symbol>
+  </defs>
+</svg>
+
+<div id="app">
+  <nav id="nav">
+    <div class="brand"><img src="assets/art/logo.webp" alt="Guitar Hero III: Legends of Rock" draggable="false"></div>
+    <ul class="menu">
+      <li><button data-go="home"><svg><use href="#i-home"/></svg><span>Inicio</span></button></li>
+      <li><button data-go="songs"><svg><use href="#i-songs"/></svg><span>Canciones</span><b class="badge" id="badge-songs"></b></button></li>
+      <li><button data-go="import"><svg><use href="#i-import"/></svg><span>Importar</span><b class="badge hot" id="badge-import"></b></button></li>
+      <li><button data-go="controls"><svg><use href="#i-controls"/></svg><span>Controles</span></button></li>
+      <li><button data-go="themes"><svg><use href="#i-brush"/></svg><span>Temas</span></button></li>
+      <li><button data-go="cheats"><svg><use href="#i-star"/></svg><span>Trucos</span></button></li>
+      <li><button data-go="options"><svg><use href="#i-options"/></svg><span>Opciones</span></button></li>
+      <li><button data-go="tools"><svg><use href="#i-tools"/></svg><span>Herramientas</span></button></li>
+    </ul>
+    <div class="nav-foot">
+      <div id="game-status" class="game-status" hidden>
+        <span class="dot"></span><span id="game-status-text">Guitar Hero III abierto</span>
+        <div class="row"><button class="link" id="game-front">Ir al juego</button><button class="link danger" id="game-kill">Cerrar</button></div>
+      </div>
+      <div id="bgm" class="bgm" hidden>
+        <span class="eq"><i></i><i></i><i></i></span>
+        <span class="bgm-text" id="bgm-text"></span>
+        <button class="icon-btn" id="bgm-pause" title="Pausar la música"><svg><use href="#i-pause"/></svg></button>
+        <button class="icon-btn" id="bgm-skip" title="Otra canción"><svg><use href="#i-skip"/></svg></button>
+      </div>
+      <button id="play" class="play-btn"><svg><use href="#i-play"/></svg><span>Jugar</span></button>
+      <div class="nav-mini">
+        <span id="input-summary" class="input-summary"></span>
+        <button class="icon-btn" id="fullscreen" title="Pantalla completa (F11)"><svg><use href="#i-expand"/></svg></button>
+      </div>
+    </div>
+  </nav>
+
+  <main id="screens">
+    <section class="screen" id="screen-home" data-bg="home"></section>
+    <section class="screen" id="screen-songs" data-bg="songs"></section>
+    <section class="screen" id="screen-import" data-bg="import"></section>
+    <section class="screen" id="screen-controls" data-bg="controls"></section>
+    <section class="screen" id="screen-themes" data-bg="options"></section>
+    <section class="screen" id="screen-cheats" data-bg="cheats"></section>
+    <section class="screen" id="screen-options" data-bg="options"></section>
+    <section class="screen" id="screen-tools" data-bg="tools"></section>
+  </main>
+</div>
+
+<div id="drop-overlay" hidden><div class="drop-card"><svg><use href="#i-import"/></svg><strong>Suelta para importar</strong><span>.sng · .zip · .7z · .rar · carpetas de Clone Hero</span></div></div>
+<div id="busy-overlay" hidden>
+  <video src="assets/art/loading.webm" muted loop playsinline preload="none"></video>
+  <div class="busy-card">
+    <h2 id="busy-title">Instalando</h2>
+    <p id="busy-sub"></p>
+    <div class="bar"><i id="busy-bar"></i></div>
+    <p id="busy-detail" class="muted"></p>
+  </div>
+</div>
+<div id="prep-overlay" hidden>
+  <div class="busy-card">
+    <h2 id="prep-title">Preparando el launcher</h2>
+    <p id="prep-sub" class="muted">Leyendo el arte y los sonidos de tu copia de Guitar Hero III (solo la primera vez)…</p>
+    <div class="bar"><i id="prep-bar"></i></div>
+    <div id="prep-actions" class="prep-actions" hidden></div>
+  </div>
+</div>
+<div id="modal-root"></div>
+<div id="toasts"></div>
+
+<script src="js/i18n.js"></script>
+<script src="js/bridge.js"></script>
+<script src="js/app.js"></script>
+<script src="js/player.js"></script>
+<script src="js/bgmusic.js"></script>
+<script src="js/sfx.js"></script>
+<script src="js/screen-home.js"></script>
+<script src="js/screen-songs.js"></script>
+<script src="js/screen-import.js"></script>
+<script src="js/screen-controls.js"></script>
+<script src="js/screen-themes.js"></script>
+<script src="js/screen-cheats.js"></script>
+<script src="js/screen-options.js"></script>
+<script src="js/screen-tools.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

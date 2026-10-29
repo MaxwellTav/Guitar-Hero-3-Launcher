@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- "GH3 Launcher Setup.exe": puts GH3 Launcher, Honeycomb (GH Toolkit), FFmpeg and x360ce in a
+       Guitar Hero III folder. The files ride at the end of the exe as a zip (..\build.ps1 appends
+       it); a development run can point at one with the payload argument. -->
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+    <AssemblyName>GH3 Launcher Setup</AssemblyName>
+    <RootNamespace>GH3Setup</RootNamespace>
+    <ApplicationIcon>app.ico</ApplicationIcon>
+    <ApplicationHighDpiMode>PerMonitorV2</ApplicationHighDpiMode>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <SelfContained>true</SelfContained>
+    <PublishSingleFile>true</PublishSingleFile>
+    <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+    <EnableCompressionInSingleFile>true</EnableCompressionInSingleFile>
+    <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
+    <Version>1.0.0</Version>
+    <Product>GH3 Launcher Setup</Product>
+    <Description>Installer for GH3 Launcher</Description>
+    <Copyright>Public domain (The Unlicense)</Copyright>
+  </PropertyGroup>
+
+</Project>

@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- The launcher's song worker: reads and edits GH3's setlists and compiles Clone Hero songs with
+       Honeycomb's GH-Toolkit-Core. It runs from Honeycomb-GUI\ (the launcher copies it there) because
+       the toolkit finds its resources and ffmpeg.exe next to the running exe. No deps.json is shipped,
+       so every Honeycomb DLL in that folder is on the probe path. -->
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <!-- the newest runtime: FFMpegCore wants System.Text.Json 9, newer than .NET 8's own -->
+    <RollForward>LatestMajor</RollForward>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+    <AssemblyName>GH3LauncherSongTool</AssemblyName>
+    <RootNamespace>SongTool</RootNamespace>
+    <GenerateDependencyFile>false</GenerateDependencyFile>
+    <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
+    <HoneycombDir Condition="'$(HoneycombDir)' == ''">$(MSBuildThisFileDirectory)..\..\..\Honeycomb-GUI</HoneycombDir>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="GH-Toolkit-Core">
+      <HintPath>$(HoneycombDir)\GH-Toolkit-Core.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Melanchall.DryWetMidi">
+      <HintPath>$(HoneycombDir)\Melanchall.DryWetMidi.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+</Project>

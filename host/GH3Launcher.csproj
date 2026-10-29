@@ -1,0 +1,60 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- The launcher: a WebView2 window whose page is ..\web (embedded), and the native side that
+       starts GH3, edits its settings, maps controllers (x360ce + the InputPlus plugin) and
+       installs songs. The song tool (..\songtool) is compiled in: "GH3 Launcher.exe songtool ..."
+       runs it in a child process on the launcher's own .NET, loading Honeycomb's GH-Toolkit-Core
+       from <game>\Honeycomb-GUI\ at run time, so nothing else has to be installed.
+       ..\build.ps1 publishes it as one self-contained exe. Nothing of the game is embedded: its art
+       and sounds are read from the player's own copy on the first start (GameAssets). -->
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <AssemblyName>GH3 Launcher</AssemblyName>
+    <RootNamespace>GH3Launcher</RootNamespace>
+    <StartupObject>GH3Launcher.Program</StartupObject>
+    <ApplicationIcon>app.ico</ApplicationIcon>
+    <ApplicationHighDpiMode>PerMonitorV2</ApplicationHighDpiMode>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <SelfContained>true</SelfContained>
+    <PublishSingleFile>true</PublishSingleFile>
+    <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+    <EnableCompressionInSingleFile>true</EnableCompressionInSingleFile>
+    <SatelliteResourceLanguages>es;en</SatelliteResourceLanguages>
+    <Version>1.0.0</Version>
+    <Product>GH3 Launcher</Product>
+    <Description>Launcher and song manager for Guitar Hero III: Legends of Rock (PC)</Description>
+    <Copyright>Public domain (The Unlicense)</Copyright>
+    <!-- Honeycomb (GH Toolkit) to compile against; at run time it is loaded from the game folder -->
+    <HoneycombDir Condition="'$(HoneycombDir)' == ''">$(MSBuildThisFileDirectory)..\..\..\Honeycomb-GUI</HoneycombDir>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.2903.40" />
+    <PackageReference Include="SharpCompress" Version="0.50.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="..\songtool\*.cs" Link="songtool\%(Filename)%(Extension)" />
+    <Reference Include="GH-Toolkit-Core">
+      <HintPath>$(HoneycombDir)\GH-Toolkit-Core.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Melanchall.DryWetMidi">
+      <HintPath>$(HoneycombDir)\Melanchall.DryWetMidi.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- the page (the game's art is not part of it: assets\art is filled from the game at run time) -->
+    <EmbeddedResource Include="..\web\**\*.*" Exclude="..\web\assets\art\**" LogicalName="web/%(RecursiveDir)%(Filename)%(Extension)" />
+    <!-- deployed by the launcher into PLUGINS\ -->
+    <EmbeddedResource Include="..\plugin\InputPlus.dll" LogicalName="deploy/InputPlus.dll" Condition="Exists('..\plugin\InputPlus.dll')" />
+  </ItemGroup>
+
+</Project>
